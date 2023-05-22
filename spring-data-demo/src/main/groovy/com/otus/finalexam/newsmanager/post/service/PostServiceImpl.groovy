@@ -129,4 +129,24 @@ class PostServiceImpl implements PostService {
             return new PostDTO()
         }
     }
+
+    @Override
+    @Transactional
+    def like(Long id) {
+        def post = postRepository.findById(id)
+                .ifPresent {
+                    it.setRating(it.getRating() + 1)
+                    postRepository.save(it)
+                }
+    }
+
+    @Override
+    @Transactional
+    def dislike(Long id) {
+        def post = postRepository.findById(id)
+                .ifPresent {
+                    it.setRating(it.getRating() - 1)
+                    postRepository.save(it)
+                }
+    }
 }

@@ -239,13 +239,36 @@ class TestPostController {
     @Order(8)
     @Test
     void '008_should_return_200_and_delete_post'() {
-        mockMvc.perform(delete("/authors/delete/${post1.getId()}")
+        mockMvc.perform(delete("/posts/delete/${post1.getId()}")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andDo(print())
                 .andExpect(status().isOk())
 
         def deletedPost = authorRepository.findById(post1.getId())
         assertTrue(deletedPost.isEmpty())
+    }
+
+    @Order(9)
+    @Test
+    void '009_should_return_200_and_like_post'() {
+        mockMvc.perform(put("/posts/${post1.getId()}/like")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+
+        assertTrue(postRepository.findById(post1.getId()).get().getRating() == 1)
+    }
+
+    @Order(10)
+    @Test
+    void '010_should_return_200_and_dislike_post'() {
+        def response = mockMvc.perform(put("/posts/${post1.getId()}/dislike")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andReturn()
+
+        assertTrue(postRepository.findById(post1.getId()).get().getRating() == 0)
     }
 
 

@@ -9,5 +9,6 @@ interface PostService {
     def getPost(Long id)
     def deletePost(Long id)
     def updatePost(Long id, PostDTO post)
-
+    def like(Long id)
+    def dislike(Long id)
 }
