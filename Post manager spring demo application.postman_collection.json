@@ -1,0 +1,321 @@
+{
+	"info": {
+		"_postman_id": "d45d921f-b43a-4a27-a207-43204a346dc6",
+		"name": "Post manager spring demo application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27529398"
+	},
+	"item": [
+		{
+			"name": "Get All Authors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.17.0.3:8080/authors/get-all",
+					"protocol": "http",
+					"host": [
+						"172",
+						"17",
+						"0",
+						"3"
+					],
+					"port": "8080",
+					"path": [
+						"authors",
+						"get-all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Posts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.17.0.3:8080/posts/get-all",
+					"protocol": "http",
+					"host": [
+						"172",
+						"17",
+						"0",
+						"3"
+					],
+					"port": "8080",
+					"path": [
+						"posts",
+						"get-all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get post by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.17.0.3:8080/posts/get/2",
+					"protocol": "http",
+					"host": [
+						"172",
+						"17",
+						"0",
+						"3"
+					],
+					"port": "8080",
+					"path": [
+						"posts",
+						"get",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Author by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://172.17.0.3:8080/authors/get/13",
+					"protocol": "http",
+					"host": [
+						"172",
+						"17",
+						"0",
+						"3"
+					],
+					"port": "8080",
+					"path": [
+						"authors",
+						"get",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Author",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\" : \"Davie504\",\n    \"secondName\" : \"Dave\",\n    \"fullName\" : \"Davie504 Dave\",\n    \"emailAddress\" : \"davie504@link.org\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://172.17.0.3:8080/authors/create",
+					"protocol": "http",
+					"host": [
+						"172",
+						"17",
+						"0",
+						"3"
+					],
+					"port": "8080",
+					"path": [
+						"authors",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Author",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://172.17.0.3:8080/authors/delete/13",
+					"protocol": "http",
+					"host": [
+						"172",
+						"17",
+						"0",
+						"3"
+					],
+					"port": "8080",
+					"path": [
+						"authors",
+						"delete",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Author",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"firstName\" : \"Dave\",\n    \"secondName\" : \"Davie504\",\n    \"fullName\" : \"Davie504 Dave\",\n    \"emailAddress\" : \"davie504@link.org\" \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/authors/update/13",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"authors",
+						"update",
+						"13"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"post post67\",\n    \"header\" : \"post post heeader56\",\n    \"text\" : \"text post text\",\n    \"publishDate\" : \"2023-05-18T01:01:35\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/posts/create?authorId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"posts",
+						"create"
+					],
+					"query": [
+						{
+							"key": "authorId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete post",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/posts/delete/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"posts",
+						"delete",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update post",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \n    \"name\" : \"post post\",\n    \"header\" : \"heeader301\",\n    \"text\" : \"text post 301\",\n    \"publishDate\" : \"21.05.2023 00:38\",\n    \"rating\" : null,\n    \"fullNameAuthor\" : \"gary gary110\"\n}\n\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/posts/update/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"posts",
+						"update",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Like post",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/posts/1/like",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"posts",
+						"1",
+						"like"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Dislike post",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://172.17.0.3:8080/posts/1/dislike",
+					"protocol": "http",
+					"host": [
+						"172",
+						"17",
+						"0",
+						"3"
+					],
+					"port": "8080",
+					"path": [
+						"posts",
+						"1",
+						"dislike"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
