@@ -2,7 +2,10 @@ plugins {
     id 'groovy'
     id 'org.springframework.boot' version '3.0.7'
     id 'io.spring.dependency-management' version '1.1.0'
+    id 'com.bmuschko.docker-spring-boot-application' version "9.3.1"
 }
+
+import com.bmuschko.gradle.docker.tasks.container.DockerCreateContainer
 
 group = 'com.otus'
 version = '1.0.0-SNAPSHOT'
@@ -35,4 +38,20 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+docker {
+    springBootApplication {
+        baseImage = 'openjdk:17-slim-buster'
+        ports = [9090, 8080]
+        images = ['post-manager-spring-boot:latest']
+    }
+}
+
+tasks.register('createContainer', DockerCreateContainer) {
+    def task = project.getTasks().getByName("dockerBuildImage")
+
+    dependsOn task
+    targetImageId task.getImageId()
+    containerName = project.getName()
 }
